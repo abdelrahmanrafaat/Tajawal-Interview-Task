@@ -1,0 +1,23 @@
+{
+    "name": "abdelrahman/tajawal",
+    "description": "Tajawal interview task",
+    "type": "project",
+    "authors": [
+        {
+            "name": "abdelrahmanrafaat",
+            "email": "abdel.rahmanrafaat5@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^4.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "nesbot/carbon": "^1.22",
+        "phpunit/phpunit": "^6.5"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Tajawal\\": "src/"   
+        }
+    }
+
+}
