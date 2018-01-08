@@ -52,6 +52,7 @@ class HotelsFinderCommand extends Command
         $searchKeys = (new KeysReader($inputReader))->read();
         (new KeysValidator)->validate($searchKeys);
 
+        
     }
 
 }
