@@ -8,6 +8,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Question\Question;
 use Tajawal\Config\Keys\Searchable;
 use Tajawal\Config\Keys\Sortable;
+use Tajawal\Output\Writer;
+use Tajawal\Input\Reader;
 
 class HotelsFinderCommand extends Command
 {
@@ -37,7 +39,8 @@ class HotelsFinderCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-            
+        $outputWriter = new Writer($output);
+        $inputReader = new Reader($this, $output, $input);
     }
 
 }
