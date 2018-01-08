@@ -46,6 +46,7 @@ class HotelsFinderCommand extends Command
 
         (new WelcomeMessage($outputWriter))->display();
         (new SearchSelectionMessage($outputWriter))->display();
+
     }
 
 }
