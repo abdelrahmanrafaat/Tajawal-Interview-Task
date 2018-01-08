@@ -4,7 +4,6 @@ namespace Tajawal\Helpers;
 use Carbon\Carbon;
 
 class CarbonHelpers{
-
     public static function convertFromString($stringDate){
         return Carbon::createFromFormat('d-m-Y', $stringDate)->startOfDay();
     }
