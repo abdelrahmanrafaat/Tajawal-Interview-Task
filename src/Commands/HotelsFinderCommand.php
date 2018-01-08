@@ -10,6 +10,8 @@ use Tajawal\Config\Keys\Searchable;
 use Tajawal\Config\Keys\Sortable;
 use Tajawal\Output\Writer;
 use Tajawal\Input\Reader;
+use Tajawal\Output\WelcomeMessage;
+use Tajawal\Output\SearchSelectionMessage;
 
 class HotelsFinderCommand extends Command
 {
@@ -41,6 +43,9 @@ class HotelsFinderCommand extends Command
     {
         $outputWriter = new Writer($output);
         $inputReader = new Reader($this, $output, $input);
+
+        (new WelcomeMessage($outputWriter))->display();
+        (new SearchSelectionMessage($outputWriter))->display();
     }
 
 }
