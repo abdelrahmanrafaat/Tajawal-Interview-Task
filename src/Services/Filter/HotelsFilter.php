@@ -3,6 +3,7 @@
 namespace Tajawal\Services\Filter;
 
 use Tajawal\Helpers\CarbonHelpers;
+use Tajawal\Helpers\StringHelpers;
 
 class HotelsFilter{
     public function filter($hotels, $query){
@@ -37,8 +38,12 @@ class HotelsFilter{
     }
 
     protected function applyNameFilter($hotelName, $queryNames){
-        return in_array($hotelName, $queryNames);
+        foreach($queryNames as $desiredHotelName){
+            if(StringHelpers::contains($hotelName, $desiredHotelName))
+                return true;
+        }
 
+        return false;
     }
 
     protected function applyCityFilter($hotelCity, $queryCities){
