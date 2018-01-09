@@ -13,6 +13,7 @@ use Tajawal\Input\Reader;
 use Tajawal\Output\WelcomeMessage;
 use Tajawal\Output\SearchSelectionMessage;
 use Tajawal\SearchQuery\Readers\KeysReader;
+use Tajawal\Output\ErrorMessage;
 use Tajawal\SearchQuery\Validators\KeysValidator;
 use Tajawal\SearchQuery\Readers\ValuesReader;
 use Tajawal\Output\EnterValuesMessage;
@@ -20,7 +21,8 @@ use Tajawal\Api\HotelsGetter;
 use Tajawal\Services\Filter\HotelsFilter;
 use Tajawal\Services\Sort\HotelsSorter;
 use Tajawal\Output\ResultsMessage;
-
+use Tajawal\SortQuery\Validator as SortQueryValidator;
+use Exception;
 
 class HotelsFinderCommand extends Command
 {
