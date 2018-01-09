@@ -47,7 +47,12 @@ class HotelsFilter{
     }
 
     protected function applyCityFilter($hotelCity, $queryCities){
-        return in_array($hotelCity, $queryCities);
+        foreach($queryCities as $desiredCity){
+            if(StringHelpers::contains($hotelCity, $desiredCity))
+                return true;
+        }
+
+        return false;
     }
 
     protected function applyPriceFilter($hotelPrice, $queryPriceRange){
