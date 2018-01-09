@@ -16,6 +16,7 @@ use Tajawal\SearchQuery\Readers\KeysReader;
 use Tajawal\SearchQuery\Validators\KeysValidator;
 use Tajawal\SearchQuery\Readers\ValuesReader;
 use Tajawal\Output\EnterValuesMessage;
+use Tajawal\Api\HotelsGetter;
 
 class HotelsFinderCommand extends Command
 {
@@ -62,7 +63,7 @@ class HotelsFinderCommand extends Command
             $searchQuery[$key] = $valuesReader->for($key)->read();
         }
 
-        
+        $hotels = (new HotelsGetter)->get(); 
     }
 
 }
