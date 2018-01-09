@@ -24,9 +24,7 @@ Using the app:
 
 4. once you run the command you will be asked to enter the search keys you want to filter by
   
-  **name city price availability** 
-  
-  at least one or more seperated by **,** 
+     **name city price availability** at least one or more seperated by **,** 
   
        $ name,city,price,availability
 
