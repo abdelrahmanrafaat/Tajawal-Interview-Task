@@ -64,6 +64,10 @@ class HotelsFinderCommand extends Command
         }
 
         $hotels = (new HotelsGetter)->get(); 
+        $hotels = (new HotelsFilter)->filter($hotels, $searchQuery);
+        $hotels = (new HotelsSorter)->sort($hotels, $sortyBy);
+
+        (new ResultsMessage($outputWriter))->display($hotels);
     }
 
 }
