@@ -50,31 +50,36 @@ class HotelsFinderCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $sortyBy = $input->getOption('sort');
-        (new SortQueryValidator)->validate($sortyBy);
+        try{
+            $sortyBy = $input->getOption('sort');
+            (new SortQueryValidator)->validate($sortyBy);
 
-        $outputWriter = new Writer($output);
-        $inputReader = new Reader($this, $output, $input);
+            $outputWriter = new Writer($output);
+            $inputReader = new Reader($this, $output, $input);
 
-        (new WelcomeMessage($outputWriter))->display();
-        (new SearchSelectionMessage($outputWriter))->display();
+            (new WelcomeMessage($outputWriter))->display();
+            (new SearchSelectionMessage($outputWriter))->display();
 
-        $searchKeys = (new KeysReader($inputReader))->read();
-        (new KeysValidator)->validate($searchKeys);
+            $searchKeys = (new KeysReader($inputReader))->read();
+            (new KeysValidator)->validate($searchKeys);
 
-        $valuesReader = new ValuesReader($inputReader, $outputWriter);
-        $enterValuesMessage = new EnterValuesMessage($outputWriter);
-        $searchQuery = [];
-        foreach ($searchKeys as $key) {
-            $enterValuesMessage->for($key)->display();
-            $searchQuery[$key] = $valuesReader->for($key)->read();
-        }
+            $valuesReader = new ValuesReader($inputReader, $outputWriter);
+            $enterValuesMessage = new EnterValuesMessage($outputWriter);
+            $searchQuery = [];
+            foreach ($searchKeys as $key) {
+                $enterValuesMessage->for($key)->display();
+                $searchQuery[$key] = $valuesReader->for($key)->read();
+            }
 
-        $hotels = (new HotelsGetter)->get(); 
-        $hotels = (new HotelsFilter)->filter($hotels, $searchQuery);
-        $hotels = (new HotelsSorter)->sort($hotels, $sortyBy);
+            $hotels = (new HotelsGetter)->get(); 
+            $hotels = (new HotelsFilter)->filter($hotels, $searchQuery);
+            $hotels = (new HotelsSorter)->sort($hotels, $sortyBy);
 
-        (new ResultsMessage($outputWriter))->display($hotels);
+            (new ResultsMessage($outputWriter))->display($hotels);
+        }catch(Exception $e){
+            $errorsDisplayer = new ErrorMessage($outputWriter);
+            $errorsDisplayer->display($e->getMessage());
+        }   
     }
 
 }
