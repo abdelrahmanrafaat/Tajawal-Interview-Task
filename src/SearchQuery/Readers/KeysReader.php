@@ -3,11 +3,12 @@
 namespace Tajawal\SearchQuery\Readers;
 
 use Tajawal\Helpers\StringHelpers;
+use Tajawal\Input\Reader;
 
 class KeysReader{
     protected $reader;
 
-    public function __construct($reader){
+    public function __construct(Reader $reader){
         $this->reader = $reader;
     }
 

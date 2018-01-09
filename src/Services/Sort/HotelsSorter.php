@@ -3,7 +3,7 @@
 namespace Tajawal\Services\Sort;
 
 class HotelsSorter{
-    public function sort($hotels, $sortyBy){
+    public function sort(array $hotels, $sortyBy){
         $sortyBy = (empty($sortyBy)) ? 'price' : $sortyBy;
 
         usort($hotels, function($first, $secound) use (&$sortyBy) {

@@ -3,15 +3,16 @@
 namespace Tajawal\Output;
 
 use Tajawal\Output\Formater;
+use Tajawal\Output\Writer;
 
 class ResultsMessage{
     protected $outputWriter;
 
-    public function __construct($outputWriter){
+    public function __construct(Writer $outputWriter){
         $this->outputWriter = $outputWriter;
     }
 
-    public function display($hotels)
+    public function display(array $hotels)
     {
         $this->outputWriter->writeLine();
 
@@ -31,7 +32,7 @@ class ResultsMessage{
         );
     }
 
-    protected function displayHotels($hotels){
+    protected function displayHotels(array $hotels){
         foreach ($hotels as $hotel) {
             $this->displayHotelData($hotel);
             $this->outputWriter->writeLine();

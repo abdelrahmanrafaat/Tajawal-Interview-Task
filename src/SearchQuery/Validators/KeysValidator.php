@@ -12,7 +12,7 @@ class KeysValidator{
         $this->searchableKeys = (new Searchable)->getKeys();
     }
     
-    public function validate($inputSearchKeys){
+    public function validate(array $inputSearchKeys){
         foreach($inputSearchKeys as $key){
             if($this->isEmpty($key))
                 throw new Exception('You can`t search by an empty key');

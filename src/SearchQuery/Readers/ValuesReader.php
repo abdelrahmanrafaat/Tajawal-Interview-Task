@@ -6,11 +6,12 @@ use Tajawal\SearchQuery\Readers\NamesReader;
 use Tajawal\SearchQuery\Readers\CitiesReader;
 use Tajawal\SearchQuery\Readers\PriceReader;
 use Tajawal\SearchQuery\Readers\AvailabilitiesReader;
+use Tajawal\Input\Reader;
 
 class ValuesReader{
     protected $inputReader;
 
-    public function __construct($inputReader){
+    public function __construct(Reader $inputReader){
         $this->inputReader = $inputReader;
     }
 

@@ -6,12 +6,13 @@ use Tajawal\Output\EnterPriceMessage;
 use Tajawal\Output\EnterCityMessage;
 use Tajawal\Output\EnterNameMessage;
 use Tajawal\Output\EnterAvailabilityMessage;
+use Tajawal\Output\Writer;
 
 class EnterValuesMessage{
 
     protected $outputWriter;
 
-    public function __construct($outputWriter){
+    public function __construct(Writer $outputWriter){
         $this->outputWriter = $outputWriter;
     }
 

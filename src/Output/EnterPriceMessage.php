@@ -1,12 +1,15 @@
 <?php
 namespace Tajawal\Output;
 
+use Tajawal\Output\Writer;
+use Tajawal\Output\Formater;
+
 class EnterPriceMessage{
 
     protected $outputWriter;
     protected $formater;
 
-    public function __construct($outputWriter){
+    public function __construct(Writer $outputWriter){
         $this->outputWriter = $outputWriter;
         $this->formater = new Formater;
     }

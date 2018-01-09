@@ -4,11 +4,12 @@ namespace Tajawal\SearchQuery\Readers;
 
 use Tajawal\SearchQuery\Validators\CitiesValidator;
 use Tajawal\Helpers\StringHelpers;
+use Tajawal\Input\Reader;
 
 class CitiesReader{
     protected $inputReader;
 
-    public function __construct($inputReader){
+    public function __construct(Reader $inputReader){
         $this->inputReader = $inputReader;
     }
 
@@ -24,7 +25,7 @@ class CitiesReader{
         return $cities;
     }
 
-    protected function validate($cities){
+    protected function validate(array $cities){
         return (new CitiesValidator)->validate($cities);   
     }
 }

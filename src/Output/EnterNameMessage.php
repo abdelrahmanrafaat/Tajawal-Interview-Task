@@ -2,12 +2,13 @@
 namespace Tajawal\Output;
 
 use Tajawal\Output\Formater;
+use Tajawal\Output\Writer;
 
 class EnterNameMessage{
     protected $outputWriter;
     protected $formater;
 
-    public function __construct($outputWriter){
+    public function __construct(Writer $outputWriter){
         $this->outputWriter = $outputWriter;
         $this->formater = new Formater;
     }

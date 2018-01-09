@@ -4,11 +4,12 @@ namespace Tajawal\SearchQuery\Readers;
 
 use Tajawal\SearchQuery\Validators\PriceValidator;
 use Tajawal\Helpers\StringHelpers;
+use Tajawal\Input\Reader;
 
 class PriceReader{
     protected $inputReader;
 
-    public function __construct($inputReader){
+    public function __construct(Reader $inputReader){
         $this->inputReader = $inputReader;
     }
 

@@ -6,11 +6,12 @@ use Tajawal\SearchQuery\Validators\AvailabilitiesValidator;
 use Tajawal\Helpers\CarbonHelpers;
 use Exception;
 use Tajawal\Helpers\StringHelpers;
+use Tajawal\Input\Reader;
 
 class AvailabilitiesReader{
     protected $inputReader;
 
-    public function __construct($inputReader){
+    public function __construct(Reader $inputReader){
         $this->inputReader = $inputReader;
     }
 
@@ -51,7 +52,7 @@ class AvailabilitiesReader{
         }
     }
 
-    protected function validate($availabilitiesRanges){
+    protected function validate(array $availabilitiesRanges){
         return (new AvailabilitiesValidator)->validate($availabilitiesRanges);   
     }
 

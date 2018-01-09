@@ -6,7 +6,7 @@ use Tajawal\Helpers\CarbonHelpers;
 use Tajawal\Helpers\StringHelpers;
 
 class HotelsFilter{
-    public function filter($hotels, $query){
+    public function filter(array $hotels, array $query){
         
         return array_filter($hotels, function($hotel) use (& $query){
             $isValidHotel = true;
@@ -33,11 +33,11 @@ class HotelsFilter{
         });
     }
 
-    protected function filterExists($query, $key){
+    protected function filterExists(array $query, $key){
         return isset($query[$key]);
     }
 
-    protected function applyNameFilter($hotelName, $queryNames){
+    protected function applyNameFilter($hotelName, array $queryNames){
         foreach($queryNames as $desiredHotelName){
             if(StringHelpers::contains($hotelName, $desiredHotelName))
                 return true;
@@ -46,7 +46,7 @@ class HotelsFilter{
         return false;
     }
 
-    protected function applyCityFilter($hotelCity, $queryCities){
+    protected function applyCityFilter($hotelCity, array $queryCities){
         foreach($queryCities as $desiredCity){
             if(StringHelpers::contains($hotelCity, $desiredCity))
                 return true;
@@ -55,11 +55,11 @@ class HotelsFilter{
         return false;
     }
 
-    protected function applyPriceFilter($hotelPrice, $queryPriceRange){
+    protected function applyPriceFilter($hotelPrice, array $queryPriceRange){
         return $queryPriceRange['from'] <= $hotelPrice && $hotelPrice <= $queryPriceRange['to'];
     }
 
-    protected function applyAvailabilityFilter($hotelAvailabilities, $queryAvailabilities){
+    protected function applyAvailabilityFilter(array $hotelAvailabilities, array $queryAvailabilities){
         foreach ($hotelAvailabilities as $hotelAvailablePeriod) {
             foreach ($queryAvailabilities as $searchPeriod) { 
                 if(

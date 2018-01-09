@@ -1,12 +1,14 @@
 <?php
 namespace Tajawal\Output;
 
+use Tajawal\Output\Writer;
+
 class EnterCityMessage{
 
     protected $outputWriter;
     protected $formater;
 
-    public function __construct($outputWriter){
+    public function __construct(Writer $outputWriter){
         $this->outputWriter = $outputWriter;
         $this->formater = new Formater;
     }

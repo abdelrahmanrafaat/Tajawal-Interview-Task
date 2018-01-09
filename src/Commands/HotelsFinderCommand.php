@@ -65,7 +65,7 @@ class HotelsFinderCommand extends Command
             $searchKeys = (new KeysReader($inputReader))->read();
             (new KeysValidator)->validate($searchKeys);
 
-            $valuesReader = new ValuesReader($inputReader, $outputWriter);
+            $valuesReader = new ValuesReader($inputReader);
             $enterValuesMessage = new EnterValuesMessage($outputWriter);
             $searchQuery = [];
             foreach ($searchKeys as $key) {
