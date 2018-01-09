@@ -17,6 +17,10 @@ use Tajawal\SearchQuery\Validators\KeysValidator;
 use Tajawal\SearchQuery\Readers\ValuesReader;
 use Tajawal\Output\EnterValuesMessage;
 use Tajawal\Api\HotelsGetter;
+use Tajawal\Services\Filter\HotelsFilter;
+use Tajawal\Services\Sort\HotelsSorter;
+use Tajawal\Output\ResultsMessage;
+
 
 class HotelsFinderCommand extends Command
 {
@@ -46,6 +50,9 @@ class HotelsFinderCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $sortyBy = $input->getOption('sort');
+        (new SortQueryValidator)->validate($sortyBy);
+
         $outputWriter = new Writer($output);
         $inputReader = new Reader($this, $output, $input);
 
