@@ -14,6 +14,8 @@ use Tajawal\Output\WelcomeMessage;
 use Tajawal\Output\SearchSelectionMessage;
 use Tajawal\SearchQuery\Readers\KeysReader;
 use Tajawal\SearchQuery\Validators\KeysValidator;
+use Tajawal\SearchQuery\Readers\ValuesReader;
+use Tajawal\Output\EnterValuesMessage;
 
 class HotelsFinderCommand extends Command
 {
@@ -51,6 +53,14 @@ class HotelsFinderCommand extends Command
 
         $searchKeys = (new KeysReader($inputReader))->read();
         (new KeysValidator)->validate($searchKeys);
+
+        $valuesReader = new ValuesReader($inputReader, $outputWriter);
+        $enterValuesMessage = new EnterValuesMessage($outputWriter);
+        $searchQuery = [];
+        foreach ($searchKeys as $key) {
+            $enterValuesMessage->for($key)->display();
+            $searchQuery[$key] = $valuesReader->for($key)->read();
+        }
 
         
     }
