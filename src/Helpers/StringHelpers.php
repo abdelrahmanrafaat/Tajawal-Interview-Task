@@ -8,6 +8,6 @@ class StringHelpers{
     }
 
     public static function contains($haystack, $needle){
-        return strpos($haystack, $needle) !== false;
+        return stripos($haystack, $needle) !== false;
     }
 }
