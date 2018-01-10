@@ -18,6 +18,11 @@
         "psr-4" : {
             "Tajawal\\": "src/"   
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     }
 
 }
