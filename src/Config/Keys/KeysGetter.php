@@ -3,6 +3,7 @@
 namespace Tajawal\Config\Keys;
 
 use Tajawal\Config\Keys\KeysGetterInterface;
+use Tajawal\Helpers\StringHelpers;
 
 class KeysGetter implements KeysGetterInterface{
 
@@ -20,8 +21,7 @@ class KeysGetter implements KeysGetterInterface{
     
     public function toString()
     {
-        $keysDelimiter = ','; 
-        return implode($keysDelimiter, $this->keys);
+        return StringHelpers::commaImplode($this->keys);
     }
 
 }
