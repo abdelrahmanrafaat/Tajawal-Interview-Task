@@ -8,15 +8,17 @@ use Tajawal\Output\EnterNameMessage;
 use Tajawal\Output\EnterAvailabilityMessage;
 use Tajawal\Output\Writer;
 
-class EnterValuesMessage{
-
+class EnterValuesMessage
+{
     protected $outputWriter;
 
-    public function __construct(Writer $outputWriter){
+    public function __construct(Writer $outputWriter)
+    {
         $this->outputWriter = $outputWriter;
     }
 
-    public function for($key){
+    public function for($key)
+    {
         if($key == 'name')
             return new EnterNameMessage($this->outputWriter);
         

@@ -6,18 +6,22 @@ use Tajawal\SearchQuery\Validators\CitiesValidator;
 use Tajawal\Helpers\StringHelpers;
 use Tajawal\Input\Reader;
 
-class CitiesReader{
+class CitiesReader
+{
     protected $inputReader;
 
-    public function __construct(Reader $inputReader){
+    public function __construct(Reader $inputReader)
+    {
         $this->inputReader = $inputReader;
     }
 
-    public function read(){
+    public function read()
+    {
         return $this->parse($this->inputReader->readLine());
     }
 
-    protected function parse($citiesString){
+    protected function parse($citiesString)
+    {
         $cities = StringHelpers::commaExplode($citiesString);
 
         $this->validate($cities);
@@ -25,7 +29,8 @@ class CitiesReader{
         return $cities;
     }
 
-    protected function validate(array $cities){
+    protected function validate(array $cities)
+    {
         return (new CitiesValidator)->validate($cities);   
     }
 }

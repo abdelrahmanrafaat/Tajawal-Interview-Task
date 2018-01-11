@@ -7,7 +7,8 @@ use Tajawal\Config\Keys\Searchable;
 
 class SearchableTest extends TestCase
 {
-    public function testKeysShouldReturnDefaults(){
+    public function testKeysShouldReturnDefaults()
+    {
         $defaults = ['name', 'city', 'price', 'availability'];
 
         $searchable = new Searchable;

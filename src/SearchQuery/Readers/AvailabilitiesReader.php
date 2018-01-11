@@ -8,24 +8,29 @@ use Exception;
 use Tajawal\Helpers\StringHelpers;
 use Tajawal\Input\Reader;
 
-class AvailabilitiesReader{
+class AvailabilitiesReader
+{
     protected $inputReader;
 
-    public function __construct(Reader $inputReader){
+    public function __construct(Reader $inputReader)
+    {
         $this->inputReader = $inputReader;
     }
 
-    public function read(){
+    public function read()
+    {
         return $this->parse($this->inputReader->readLine());
     }
 
-    protected function parse($availabilitiesString){
+    protected function parse($availabilitiesString)
+    {
         $availabilitiesRanges = StringHelpers::commaExplode($availabilitiesString);
         
         $this->validate($availabilitiesRanges);
         
         $parsedAvailabilities = [];
-        foreach ($availabilitiesRanges as $date) {
+        foreach ($availabilitiesRanges as $date)
+        {
             $parsedAvailability = $this->parseAvailabilityRange($date);
             $parsedAvailabilities[] = $parsedAvailability;
         }
@@ -34,7 +39,8 @@ class AvailabilitiesReader{
     }
 
     //TODO : Exctract the validation step out of parsing
-    protected function parseAvailabilityRange($range){
+    protected function parseAvailabilityRange($range)
+    {
         try{
             $datesAsStrings = explode(':', $range);
             
@@ -52,7 +58,8 @@ class AvailabilitiesReader{
         }
     }
 
-    protected function validate(array $availabilitiesRanges){
+    protected function validate(array $availabilitiesRanges)
+    {
         return (new AvailabilitiesValidator)->validate($availabilitiesRanges);   
     }
 

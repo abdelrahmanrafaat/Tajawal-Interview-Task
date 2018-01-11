@@ -12,29 +12,34 @@ class HotelsMapperTest extends TestCase
     private $hottelsMapper;
     private $unMappedHotels;
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
 
         $this->hotelsMapper = new HotelsMapper;
         $this->unMappedHotels = new UnMappedHotelsMock;
     }
 
-    public function testMapNameReturnsName(){
+    public function testMapNameReturnsName()
+    {
         $hotelName = $this->unMappedHotels->getOneHotel()->name;
         $this->assertEquals($hotelName, $this->hotelsMapper->mapName($hotelName));
     }
 
-    public function testMapCityReturnsCity(){
+    public function testMapCityReturnsCity()
+    {
         $hotelCity = $this->unMappedHotels->getOneHotel()->city;
         $this->assertEquals($hotelCity, $this->hotelsMapper->mapCity($hotelCity));
     }
 
-    public function testMapPriceReturnsPrice(){
+    public function testMapPriceReturnsPrice()
+    {
         $hotelPrice = $this->unMappedHotels->getOneHotel()->price;
         $this->assertEquals($hotelPrice, $this->hotelsMapper->mapPrice($hotelPrice));
     }
 
-    public function testMapAvailabilityReturnsArrayObjectOfContainingCarbonInstances(){
+    public function testMapAvailabilityReturnsArrayObjectOfContainingCarbonInstances()
+    {
         $hotelFirstAvailability = $this->unMappedHotels->getOneHotel()->availability[0];
         
         $mappedAvailability = [ 

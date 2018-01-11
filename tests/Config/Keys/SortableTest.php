@@ -7,7 +7,8 @@ use Tajawal\Config\Keys\Sortable;
 
 class SortableTest extends TestCase
 {
-    public function testKeysShouldReturnDefaults(){
+    public function testKeysShouldReturnDefaults()
+    {
         $defaults = ['name', 'price'];
 
         $sortable = new Sortable;

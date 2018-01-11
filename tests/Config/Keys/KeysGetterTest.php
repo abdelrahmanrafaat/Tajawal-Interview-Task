@@ -7,14 +7,16 @@ use Tajawal\Config\Keys\KeysGetter;
 
 class KeysGetterTest extends TestCase
 {
-    public function testGetKeysReturnsArrayOfKeys(){
+    public function testGetKeysReturnsArrayOfKeys()
+    {
         $keys = ['firstKey', 'secoundKey'];
         $keysGetter = new KeysGetter($keys);
 
         $this->assertEquals($keys, $keysGetter->getKeys());
     }    
 
-    public function testToStringReturnsKeysSeperatedByComma(){
+    public function testToStringReturnsKeysSeperatedByComma()
+    {
         $keys = ['firstKey', 'secoundKey'];
         $keysGetter = new KeysGetter($keys);
 

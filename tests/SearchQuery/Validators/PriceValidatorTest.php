@@ -8,14 +8,16 @@ use Exception;
 
 class PriceValidatorTest extends TestCase
 {
-    public function testValidateWillThrowExceptionIfPriceRangeNotEqual2(){
+    public function testValidateWillThrowExceptionIfPriceRangeNotEqual2()
+    {
         $this->expectException(Exception::class);
         
         $priceValidator = new PriceValidator;
         $priceValidator->validate([1, 2, 3]);
     }
 
-    public function testValidateWillThrowExceptionIfAnyPriceIsNotNumeric(){
+    public function testValidateWillThrowExceptionIfAnyPriceIsNotNumeric()
+    {
         $this->expectException(Exception::class);
         
         $priceValidator = new PriceValidator;

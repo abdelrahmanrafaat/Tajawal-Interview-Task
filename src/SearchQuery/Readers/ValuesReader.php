@@ -8,14 +8,17 @@ use Tajawal\SearchQuery\Readers\PriceReader;
 use Tajawal\SearchQuery\Readers\AvailabilitiesReader;
 use Tajawal\Input\Reader;
 
-class ValuesReader{
+class ValuesReader
+{
     protected $inputReader;
 
-    public function __construct(Reader $inputReader){
+    public function __construct(Reader $inputReader)
+    {
         $this->inputReader = $inputReader;
     }
 
-    public function for($key){
+    public function for($key)
+    {
         if($key == 'name')
             return new NamesReader($this->inputReader);
         

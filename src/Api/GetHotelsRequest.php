@@ -4,9 +4,10 @@ namespace Tajawal\Api;
 
 use Exception;
 
-class GetHotelsRequest{
-
-    public function make($client){
+class GetHotelsRequest
+{
+    public function make($client)
+    {
         try {
             $hotelsEndPoint = 'https://api.myjson.com/bins/tl0bp';
             return $client->request('GET', $hotelsEndPoint);

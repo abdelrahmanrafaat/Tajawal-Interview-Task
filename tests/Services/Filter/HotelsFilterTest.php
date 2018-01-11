@@ -12,35 +12,40 @@ class HotelsFilterTest extends TestCase
     private $hotelsFilter;
     private $hotels;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->hotelsFilter = new HotelsFilter;
         $this->hotels = (new MappedHotelsMock)->get();
 
         parent::__construct();
     }
 
-    public function testQueryNamesContainsHotelName(){
+    public function testQueryNamesContainsHotelName()
+    {
         $queryNames = ['helton', 'rotana'];
 
         $this->assertTrue($this->hotelsFilter->applyNameFilter('rotana', $queryNames));
         $this->assertFalse($this->hotelsFilter->applyNameFilter('dontExist', $queryNames));
     }
 
-    public function testQueryCitiesContainsHotelCity(){
+    public function testQueryCitiesContainsHotelCity()
+    {
         $queryNames = ['cairo', 'dubai'];
 
         $this->assertTrue($this->hotelsFilter->applyCityFilter('cairo', $queryNames));
         $this->assertFalse($this->hotelsFilter->applyCityFilter('dontExist', $queryNames));
     }
 
-    public function testHotelPriceIsWithinQueryPriceRange(){
+    public function testHotelPriceIsWithinQueryPriceRange()
+    {
         $queryPrice = ['from' => 10, 'to' => 200];
 
         $this->assertTrue($this->hotelsFilter->applyPriceFilter(50, $queryPrice));
         $this->assertFalse($this->hotelsFilter->applyPriceFilter(500, $queryPrice));
     }
 
-    public function testHotelAvailabilitesMatchesQueryAvailabilites(){
+    public function testHotelAvailabilitesMatchesQueryAvailabilites()
+    {
         $hotelAvailabiltiy = $this->hotels[0]->availability;
 
         $withinRangeAvailability = [

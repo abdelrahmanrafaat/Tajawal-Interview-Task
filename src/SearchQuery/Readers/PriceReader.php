@@ -6,18 +6,22 @@ use Tajawal\SearchQuery\Validators\PriceValidator;
 use Tajawal\Helpers\StringHelpers;
 use Tajawal\Input\Reader;
 
-class PriceReader{
+class PriceReader
+{
     protected $inputReader;
 
-    public function __construct(Reader $inputReader){
+    public function __construct(Reader $inputReader)
+    {
         $this->inputReader = $inputReader;
     }
 
-    public function read(){
+    public function read()
+    {
         return $this->parse($this->inputReader->readLine());
     }
 
-    protected function parse($priceRangeString){
+    protected function parse($priceRangeString)
+    {
         $priceRange = explode(':', $priceRangeString);
 
         $this->validate($priceRange);
@@ -28,7 +32,8 @@ class PriceReader{
         ];
     }
 
-    protected function validate(array $priceRange){
+    protected function validate(array $priceRange)
+    {
         return (new PriceValidator)->validate($priceRange);
     }
 

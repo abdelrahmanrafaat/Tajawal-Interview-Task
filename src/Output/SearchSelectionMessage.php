@@ -6,11 +6,13 @@ use Tajawal\Config\Keys\Searchable;
 use Tajawal\Output\Formater;
 use Tajawal\Output\Writer;
 
-class SearchSelectionMessage{
+class SearchSelectionMessage
+{
     protected $formater;
     protected $outputWriter;
 
-    public function __construct(Writer $outputWriter){
+    public function __construct(Writer $outputWriter)
+    {
         $this->formater = new Formater;
         $this->outputWriter = $outputWriter;
     }

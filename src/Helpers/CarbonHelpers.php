@@ -3,23 +3,28 @@ namespace Tajawal\Helpers;
 
 use Carbon\Carbon;
 
-class CarbonHelpers{
-    public static function convertFromString($stringDate){
+class CarbonHelpers
+{
+    public static function convertFromString($stringDate)
+    {
         return Carbon::createFromFormat('d-m-Y', $stringDate)->startOfDay();
     }
 
-    public static function getMinAndMax(Carbon $firstDate, Carbon $secoundDate){
+    public static function getMinAndMax(Carbon $firstDate, Carbon $secoundDate)
+    {
         return [
             'min' => $firstDate->min($secoundDate),
             'max' => $firstDate->max($secoundDate),
         ];
     }
 
-    public static function greaterThanOrEqual(Carbon $first, Carbon $secound){
+    public static function greaterThanOrEqual(Carbon $first, Carbon $secound)
+    {
         return $first->gte($secound);
     }
 
-    public static function isWithinSameYear(Carbon $first, Carbon $secound){
+    public static function isWithinSameYear(Carbon $first, Carbon $secound)
+    {
         return $first->year == $secound->year;
     }
 

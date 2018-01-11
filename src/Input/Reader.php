@@ -6,7 +6,8 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Reader{
+class Reader
+{
     protected $commandInstance;
     protected $output;
     protected $input;
@@ -18,7 +19,8 @@ class Reader{
         $this->input = $input;
     }
 
-    public function readLine(){
+    public function readLine()
+    {
         return $this->commandInstance
                     ->getHelper('question')
                     ->ask($this->input, $this->output, new Question(''));

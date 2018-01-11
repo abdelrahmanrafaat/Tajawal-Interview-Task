@@ -8,7 +8,8 @@ use Exception;
 
 class AvailabilitiesValidatorTest extends TestCase
 {
-    public function testValidateWillThrowExceptionIfAnyAvailabilityIsEmpty(){
+    public function testValidateWillThrowExceptionIfAnyAvailabilityIsEmpty()
+    {
         $this->expectException(Exception::class);
         
         $availabilitiesValidator = new AvailabilitiesValidator;

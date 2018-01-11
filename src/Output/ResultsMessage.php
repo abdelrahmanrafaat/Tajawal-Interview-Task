@@ -5,10 +5,12 @@ namespace Tajawal\Output;
 use Tajawal\Output\Formater;
 use Tajawal\Output\Writer;
 
-class ResultsMessage{
+class ResultsMessage
+{
     protected $outputWriter;
 
-    public function __construct(Writer $outputWriter){
+    public function __construct(Writer $outputWriter)
+    {
         $this->outputWriter = $outputWriter;
     }
 
@@ -16,7 +18,8 @@ class ResultsMessage{
     {
         $this->outputWriter->writeLine();
 
-        if(empty($hotels)){
+        if(empty($hotels))
+        {
             $this->displayNoHotelsWasFound();
             return;
         }
@@ -26,20 +29,23 @@ class ResultsMessage{
         $this->displayHotels($hotels);
     }
 
-    protected function displayNoHotelsWasFound(){
+    protected function displayNoHotelsWasFound()
+    {
         $this->outputWriter->writeLine(
             (new Formater)->greenText('Sorry, no hotels were found')
         );
     }
 
-    protected function displayHotels(array $hotels){
+    protected function displayHotels(array $hotels)
+    {
         foreach ($hotels as $hotel) {
             $this->displayHotelData($hotel);
             $this->outputWriter->writeLine();
         }
     }
 
-    protected function displayHotelData($hotel){
+    protected function displayHotelData($hotel)
+    {
         $this->outputWriter->writeLine(
             (new Formater)->greenText("Hotel Name : {$hotel->name} | Price : {$hotel->price}")
         );

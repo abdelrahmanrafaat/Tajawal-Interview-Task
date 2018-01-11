@@ -8,7 +8,8 @@ use Exception;
 
 class NamesValidatorTest extends TestCase
 {
-    public function testValidateWillThrowExceptionIfAnyNameIsEmpty(){
+    public function testValidateWillThrowExceptionIfAnyNameIsEmpty()
+    {
         $this->expectException(Exception::class);
         
         $nameValidator = new NamesValidator;

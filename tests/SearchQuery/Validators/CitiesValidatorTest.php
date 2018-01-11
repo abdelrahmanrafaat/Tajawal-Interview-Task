@@ -8,7 +8,8 @@ use Exception;
 
 class CitiesValidatorTest extends TestCase
 {
-    public function testValidateWillThrowExceptionIfAnyCityIsEmpty(){
+    public function testValidateWillThrowExceptionIfAnyCityIsEmpty()
+    {
         $this->expectException(Exception::class);
         
         $citiesValidator = new CitiesValidator;

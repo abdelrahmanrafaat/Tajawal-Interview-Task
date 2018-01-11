@@ -2,8 +2,8 @@
 
 namespace Tajawal\Output;
 
-class Formater{
-
+class Formater
+{
     public function greenText($text)
     {
         return "<info>{$text}</info>";

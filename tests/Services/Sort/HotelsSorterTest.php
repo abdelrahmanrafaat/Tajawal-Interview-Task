@@ -9,13 +9,15 @@ class HotelsSorterTest extends TestCase
 {
     private $hotelsSorter;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->hotelsSorter = new HotelsSorter;
 
         parent::__construct();
     }
 
-    public function testSortByName(){
+    public function testSortByName()
+    {
         $unsortedHotels = [
             (object)[
                 'name' => 'c-hotel'
@@ -34,7 +36,8 @@ class HotelsSorterTest extends TestCase
         $this->assertEquals($sortedHotels[2]->name, 'c-hotel');
     }
 
-    public function testSortByPrice(){
+    public function testSortByPrice()
+    {
         $unsortedHotels = [
             (object)[
                 'price' => 10

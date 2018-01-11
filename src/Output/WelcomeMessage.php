@@ -5,10 +5,12 @@ namespace Tajawal\Output;
 use Tajawal\Output\Formater;
 use Tajawal\Output\Writer;
 
-class WelcomeMessage{
+class WelcomeMessage
+{
     protected $outputWriter;
 
-    public function __construct(Writer $outputWriter){
+    public function __construct(Writer $outputWriter)
+    {
         $this->outputWriter = $outputWriter;
     }
 

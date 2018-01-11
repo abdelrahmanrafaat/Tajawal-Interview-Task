@@ -3,10 +3,10 @@ namespace Tajawal\Services\Map;
 
 use Tajawal\Helpers\CarbonHelpers;
 
-class HotelsMapper{
-
-    public function map(array $hotels){
-
+class HotelsMapper
+{
+    public function map(array $hotels)
+    {
         return array_map(function($hotel){
             $mappedHotel =  (object)[];
 
@@ -19,19 +19,23 @@ class HotelsMapper{
         }, $hotels);
     }
 
-    public function mapName($name){
+    public function mapName($name)
+    {
         return $name;
     }
 
-    public function mapPrice($price){
+    public function mapPrice($price)
+    {
         return $price;
     }
 
-    public function mapCity($city){
+    public function mapCity($city)
+    {
         return $city;
     }
 
-    public function mapAvailability(array $availability){
+    public function mapAvailability(array $availability)
+    {
         return array_map(function($availablePeriod){
             return (object)[
                 'from' => CarbonHelpers::convertFromString($availablePeriod->from),

@@ -8,7 +8,8 @@ use Exception;
 
 class ValidatorTest extends TestCase
 {
-    public function testValidateThrowsExceptionIfSortByKeyDontExistInSortableKeys(){
+    public function testValidateThrowsExceptionIfSortByKeyDontExistInSortableKeys()
+    {
         $this->expectException(Exception::class);
         $sortKeyValidator = new Validator;
 

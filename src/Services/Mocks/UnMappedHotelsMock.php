@@ -1,9 +1,11 @@
 <?php
 namespace Tajawal\Services\Mocks;
 
-class UnMappedHotelsMock{
+class UnMappedHotelsMock
+{
 
-    public function get(){
+    public function get()
+    {
         return json_decode('[
             {
                 "name": "Media One Hotel",
@@ -122,7 +124,8 @@ class UnMappedHotelsMock{
         ]');
     }
 
-    public function getOneHotel(){
+    public function getOneHotel()
+    {
         return $this->get()[0];
     }
 }

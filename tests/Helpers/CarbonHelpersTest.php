@@ -9,21 +9,24 @@ use Carbon\Carbon;
 
 class CarbonHelpersTest extends TestCase
 {
-    public function testConvertFromStringShouldReturnCarbonInstance(){
+    public function testConvertFromStringShouldReturnCarbonInstance()
+    {
         $stringDate = '25-10-2020';
         $carbonDate = CarbonHelpers::convertFromString($stringDate);
 
         $this->assertTrue($carbonDate Instanceof Carbon); 
     }
     
-    public function testConvertFromStringWillThrowExceptionIFNotValidDateFormat(){
+    public function testConvertFromStringWillThrowExceptionIFNotValidDateFormat()
+    {
         $this->expectException(InvalidArgumentException::class);
         
         $invalidStringDate = '2522-110-12020';
         CarbonHelpers::convertFromString($invalidStringDate);
     }
 
-    public function testMinAndMax(){
+    public function testMinAndMax()
+    {
         $smallerDate = Carbon::now();
         $greaterDate = $smallerDate->addDays(1);
 
@@ -35,7 +38,8 @@ class CarbonHelpersTest extends TestCase
         $this->assertEquals($minAndMax, CarbonHelpers::getMinAndMax($smallerDate, $greaterDate));
     }
 
-    public function testGreaterThanOrEqual(){
+    public function testGreaterThanOrEqual()
+    {
         $smallerDate = Carbon::now();
         $greaterDate = $smallerDate->addDays(1);
 

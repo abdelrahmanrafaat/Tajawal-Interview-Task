@@ -5,8 +5,10 @@ namespace Tajawal\Services\Filter;
 use Tajawal\Helpers\CarbonHelpers;
 use Tajawal\Helpers\StringHelpers;
 
-class HotelsFilter{
-    public function filter(array $hotels, array $query){
+class HotelsFilter
+{
+    public function filter(array $hotels, array $query)
+    {
         
         return array_filter($hotels, function($hotel) use (& $query){
             $isValidHotel = true;
@@ -33,12 +35,15 @@ class HotelsFilter{
         });
     }
 
-    protected function filterExists(array $query, $key){
+    protected function filterExists(array $query, $key)
+    {
         return isset($query[$key]);
     }
 
-    public function applyNameFilter($hotelName, array $queryNames){
-        foreach($queryNames as $desiredHotelName){
+    public function applyNameFilter($hotelName, array $queryNames)
+    {
+        foreach($queryNames as $desiredHotelName)
+        {
             if(StringHelpers::contains($hotelName, $desiredHotelName))
                 return true;
         }
@@ -46,8 +51,10 @@ class HotelsFilter{
         return false;
     }
 
-    public function applyCityFilter($hotelCity, array $queryCities){
-        foreach($queryCities as $desiredCity){
+    public function applyCityFilter($hotelCity, array $queryCities)
+    {
+        foreach($queryCities as $desiredCity)
+        {
             if(StringHelpers::contains($hotelCity, $desiredCity))
                 return true;
         }
@@ -55,11 +62,13 @@ class HotelsFilter{
         return false;
     }
 
-    public function applyPriceFilter($hotelPrice, array $queryPriceRange){
+    public function applyPriceFilter($hotelPrice, array $queryPriceRange)
+    {
         return $queryPriceRange['from'] <= $hotelPrice && $hotelPrice <= $queryPriceRange['to'];
     }
 
-    public function applyAvailabilityFilter(array $hotelAvailabilities, array $queryAvailabilities){
+    public function applyAvailabilityFilter(array $hotelAvailabilities, array $queryAvailabilities)
+    {
         foreach ($hotelAvailabilities as $hotelAvailablePeriod) {
             foreach ($queryAvailabilities as $searchPeriod) { 
                 if(
