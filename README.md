@@ -1,7 +1,19 @@
 # Tajawal-Interview-Task
 Cli app to (filter, sort and display filtered) hotels from an api
 
-Using the app:
+## Technical Details:
+
+### Packages used
+1. Symfony-console for reading user input and displaying output
+2. Guzzle for making Http requests
+3. Carbon for dates parsing and manipulation
+4. php-unit for unit testing purposes  
+
+### Coding Standards
+1. Psr-4 autoloading
+2. Psr-2 coding style
+
+## Using the app:
 
 1. Clone the repository
 
@@ -49,3 +61,14 @@ Using the app:
 At the end the matching hotels will be displayed with it\`s price
  
  
+ ## Running Unit tests:
+       $ ./vendor/bin/phpunit
+
+## Improvments:
+1. Instead of using general exceptions, create custom exceptions classes
+
+## Optimizations For large dataset:
+1. Large data-set should be paginated
+2. Adding a Caching layer that can be updated by a scheduled job to save request time while the user is using the app
+3. Normalizing the data returned from the api for example: remove word Hotel from Rotana Hotel to be Rotana
+4. benchmarking/profiling filtering and sorting algorthims and Implementing a more effiecient ones
