@@ -2,7 +2,7 @@
 
 namespace Tajawal\SearchQuery\Validators;
 
-use \Exception;
+use Exception;
 
 class AvailabilitiesValidator{
     

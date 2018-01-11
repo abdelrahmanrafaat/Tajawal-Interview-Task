@@ -3,7 +3,7 @@
 namespace Tajawal\SearchQuery\Validators;
 
 use Tajawal\Config\Keys\Searchable;
-use \Exception;
+use Exception;
 
 class KeysValidator{
     protected $searchableKeys;
