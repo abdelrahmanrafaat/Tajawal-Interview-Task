@@ -37,7 +37,7 @@ class HotelsFilter{
         return isset($query[$key]);
     }
 
-    protected function applyNameFilter($hotelName, array $queryNames){
+    public function applyNameFilter($hotelName, array $queryNames){
         foreach($queryNames as $desiredHotelName){
             if(StringHelpers::contains($hotelName, $desiredHotelName))
                 return true;
@@ -46,7 +46,7 @@ class HotelsFilter{
         return false;
     }
 
-    protected function applyCityFilter($hotelCity, array $queryCities){
+    public function applyCityFilter($hotelCity, array $queryCities){
         foreach($queryCities as $desiredCity){
             if(StringHelpers::contains($hotelCity, $desiredCity))
                 return true;
@@ -55,16 +55,18 @@ class HotelsFilter{
         return false;
     }
 
-    protected function applyPriceFilter($hotelPrice, array $queryPriceRange){
+    public function applyPriceFilter($hotelPrice, array $queryPriceRange){
         return $queryPriceRange['from'] <= $hotelPrice && $hotelPrice <= $queryPriceRange['to'];
     }
 
-    protected function applyAvailabilityFilter(array $hotelAvailabilities, array $queryAvailabilities){
+    public function applyAvailabilityFilter(array $hotelAvailabilities, array $queryAvailabilities){
         foreach ($hotelAvailabilities as $hotelAvailablePeriod) {
             foreach ($queryAvailabilities as $searchPeriod) { 
                 if(
                     CarbonHelpers::greaterThanOrEqual($hotelAvailablePeriod->from, $searchPeriod['from']) &&
-                    CarbonHelpers::greaterThanOrEqual($hotelAvailablePeriod->to, $searchPeriod['to']) 
+                    CarbonHelpers::greaterThanOrEqual($hotelAvailablePeriod->to, $searchPeriod['to']) &&
+                    CarbonHelpers::isWithinSameYear($hotelAvailablePeriod->from, $searchPeriod['from']) &&
+                    CarbonHelpers::isWithinSameYear($hotelAvailablePeriod->to, $searchPeriod['to'])
                 ){
                     return true;
                 }
@@ -73,6 +75,4 @@ class HotelsFilter{
         
         return false;
     }
-
-    
 }

@@ -19,4 +19,8 @@ class CarbonHelpers{
         return $first->gte($secound);
     }
 
+    public static function isWithinSameYear(Carbon $first, Carbon $secound){
+        return $first->year == $secound->year;
+    }
+
 }
